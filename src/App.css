@@ -1,0 +1,88 @@
+@font-face {
+  font-family: "Continuous";
+  font-style: normal;
+  font-weight: 100;
+  src: url("./font/continuous.ttf") format("woff");
+}
+
+@font-face {
+  font-family: "KoPubWorld";
+  font-style: normal;
+  font-weight: 100;
+  src: url("./font/KoPubWorld.ttf") format("woff");
+}
+
+/* * {
+  outline: 1px solid red;
+} */
+
+.login {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+}
+
+.loginSet {
+  display: flex;
+  justify-content: space-around;
+  width: 80px;
+}
+
+.loginButtonIcon {
+  font-size: 20px;
+}
+
+.loginButtonText {
+  font-size: 20px;
+  font-family: "Continuous";
+  text-decoration: underline;
+}
+
+.HMLogoLocation {
+  display: flex;
+  justify-content: center;
+}
+
+.HMLogo {
+  width: 100px;
+  height: 50px;
+}
+
+.menuArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.menuList {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuList li {
+  padding: 10px;
+}
+
+.searchSet {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  font-size: 20px;
+}
+
+.searchText {
+  font-size: 15px;
+  border: 0;
+  border-radius: 15px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+  font-family: "KoPubWorld";
+}
