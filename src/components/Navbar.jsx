@@ -29,8 +29,8 @@ export default function Navbar() {
       </div>
       <div className="menuArea">
         <ul className="menuList">
-          {menuList.map((menu) => (
-            <li>{menu}</li>
+          {menuList.map((menu, index) => (
+            <li key={index}>{menu}</li>
           ))}
         </ul>
         <div className="searchSet">
