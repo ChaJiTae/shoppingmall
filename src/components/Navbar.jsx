@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import HMLogo from "../images/HandMLogo.png";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const menuList = [
@@ -16,16 +17,33 @@ export default function Navbar() {
     "지속가능성",
   ];
 
+  const navigate = useNavigate();
+
+  const goToHome = () => {
+    navigate("/");
+  };
+
+  const goToLogin = () => {
+    navigate("/login");
+  };
+
+  const search = (event) => {
+    if (event.key === "Enter") {
+      let keyword = event.target.value;
+      navigate(`/?q=${keyword}`);
+    }
+  };
+
   return (
     <div>
-      <div className="login">
+      <div className="login" onClick={goToLogin}>
         <div className="loginSet">
           <FontAwesomeIcon className="loginButtonIcon" icon={faUser} />
           <div className="loginButtonText">Log in</div>
         </div>
       </div>
       <div className="HMLogoLocation">
-        <img className="HMLogo" alt="HMLogo" src={HMLogo} />
+        <img className="HMLogo" alt="HMLogo" src={HMLogo} onClick={goToHome} />
       </div>
       <div className="menuArea">
         <ul className="menuList">
@@ -35,7 +53,14 @@ export default function Navbar() {
         </ul>
         <div className="searchSet">
           <FontAwesomeIcon className="searchIcon" icon={faSearch} />
-          <input className="searchText" type="text" defaultValue="검색" />
+          <input
+            className="searchText"
+            type="text"
+            placeholder="검색"
+            onKeyPress={(event) => {
+              search(event);
+            }}
+          />
         </div>
       </div>
     </div>
