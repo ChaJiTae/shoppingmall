@@ -5,7 +5,7 @@ import HMLogo from "../images/HandMLogo.png";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ authenticate, setAuthenticate }) {
   const menuList = [
     "여성",
     "Divided",
@@ -27,6 +27,11 @@ export default function Navbar() {
     navigate("/login");
   };
 
+  const logOut = () => {
+    setAuthenticate(false);
+    navigate("/");
+  };
+
   const search = (event) => {
     if (event.key === "Enter") {
       let keyword = event.target.value;
@@ -36,10 +41,12 @@ export default function Navbar() {
 
   return (
     <div>
-      <div className="login" onClick={goToLogin}>
+      <div className="login" onClick={authenticate ? logOut : goToLogin}>
         <div className="loginSet">
           <FontAwesomeIcon className="loginButtonIcon" icon={faUser} />
-          <div className="loginButtonText">Log in</div>
+          <div className="loginButtonText">
+            {authenticate ? "Log out" : "Log in"}
+          </div>
         </div>
       </div>
       <div className="HMLogoLocation">
